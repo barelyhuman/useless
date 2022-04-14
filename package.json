@@ -27,7 +27,8 @@
     "release": "./scripts/release",
     "size": "sizesnap",
     "start": "ts-node-dev --poll src/index.js",
-    "test": "uvu -r esm tests"
+    "test": "uvu -r esm tests",
+    "wiki": "npx typedoc"
   },
   "devDependencies": {
     "@antfu/ni": "^0.14.0",
@@ -44,6 +45,9 @@
     "sizesnap": "^0.1.1",
     "ts-node-dev": "^1.1.8",
     "tsup": "^5.11.13",
+    "typedoc": "^0.22.15",
+    "typedoc-github-wiki-theme": "^1.0.0",
+    "typedoc-plugin-markdown": "^3.12.0",
     "typescript": "^4.5.5",
     "uvu": "^0.5.3"
   },

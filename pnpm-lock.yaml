@@ -15,6 +15,9 @@ specifiers:
   sizesnap: ^0.1.1
   ts-node-dev: ^1.1.8
   tsup: ^5.11.13
+  typedoc: ^0.22.15
+  typedoc-github-wiki-theme: ^1.0.0
+  typedoc-plugin-markdown: ^3.12.0
   typescript: ^4.5.5
   uvu: ^0.5.3
 
@@ -33,6 +36,9 @@ devDependencies:
   sizesnap: 0.1.1
   ts-node-dev: 1.1.8_typescript@4.6.3
   tsup: 5.12.5_typescript@4.6.3
+  typedoc: 0.22.15_typescript@4.6.3
+  typedoc-github-wiki-theme: 1.0.0_ddd1ae58c87c5acf057dd7b2dd6957e9
+  typedoc-plugin-markdown: 3.12.0_typedoc@0.22.15
   typescript: 4.6.3
   uvu: 0.5.3
 
@@ -159,6 +165,12 @@ packages:
     dependencies:
       balanced-match: 1.0.2
       concat-map: 0.0.1
+    dev: true
+
+  /brace-expansion/2.0.1:
+    resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
+    dependencies:
+      balanced-match: 1.0.2
     dev: true
 
   /braces/3.0.2:
@@ -750,6 +762,19 @@ packages:
       slash: 3.0.0
     dev: true
 
+  /handlebars/4.7.7:
+    resolution: {integrity: sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA==}
+    engines: {node: '>=0.4.7'}
+    hasBin: true
+    dependencies:
+      minimist: 1.2.6
+      neo-async: 2.6.2
+      source-map: 0.6.1
+      wordwrap: 1.0.0
+    optionalDependencies:
+      uglify-js: 3.15.4
+    dev: true
+
   /has-flag/3.0.0:
     resolution: {integrity: sha1-tdRU3CGZriJWmfNGfloH87lVuv0=}
     engines: {node: '>=4'}
@@ -856,6 +881,10 @@ packages:
     hasBin: true
     dev: true
 
+  /jsonc-parser/3.0.0:
+    resolution: {integrity: sha512-fQzRfAbIBnR0IQvftw9FJveWiHp72Fg20giDrHz6TdfB12UH/uue0D3hm57UB5KgAVuniLMCaS8P1IMj9NR7cA==}
+    dev: true
+
   /kleur/3.0.3:
     resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
     engines: {node: '>=6'}
@@ -898,8 +927,18 @@ packages:
       yallist: 4.0.0
     dev: true
 
+  /lunr/2.3.9:
+    resolution: {integrity: sha512-zTU3DaZaF3Rt9rhN3uBMGQD3dD2/vFQqnvZCDv4dl5iOzq2IZQqTxu90r4E5J+nP70J3ilqVCrbho2eWaeW8Ow==}
+    dev: true
+
   /make-error/1.3.6:
     resolution: {integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==}
+    dev: true
+
+  /marked/4.0.14:
+    resolution: {integrity: sha512-HL5sSPE/LP6U9qKgngIIPTthuxC0jrfxpYMZ3LdGDD3vTnLs59m2Z7r6+LNDR3ToqEQdkKd6YaaEfJhodJmijQ==}
+    engines: {node: '>= 12'}
+    hasBin: true
     dev: true
 
   /merge-stream/2.0.0:
@@ -928,6 +967,13 @@ packages:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
       brace-expansion: 1.1.11
+    dev: true
+
+  /minimatch/5.0.1:
+    resolution: {integrity: sha512-nLDxIFRyhDblz3qMuq+SoRZED4+miJ/G+tdDrjkkkRnjAsBexeGpgjLEQ0blJy7rHhR2b93rhQY4SvyWu9v03g==}
+    engines: {node: '>=10'}
+    dependencies:
+      brace-expansion: 2.0.1
     dev: true
 
   /minimist/1.2.6:
@@ -970,6 +1016,10 @@ packages:
       any-promise: 1.3.0
       object-assign: 4.1.1
       thenify-all: 1.6.0
+    dev: true
+
+  /neo-async/2.6.2:
+    resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
 
   /noms/0.0.0:
@@ -1215,6 +1265,14 @@ packages:
   /shebang-regex/3.0.0:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
+    dev: true
+
+  /shiki/0.10.1:
+    resolution: {integrity: sha512-VsY7QJVzU51j5o1+DguUd+6vmCmZ5v/6gYu4vyYAhzjuNQU6P/vmSy4uQaOhvje031qQMiW0d2BwgMH52vqMng==}
+    dependencies:
+      jsonc-parser: 3.0.0
+      vscode-oniguruma: 1.6.2
+      vscode-textmate: 5.2.0
     dev: true
 
   /signal-exit/3.0.7:
@@ -1480,6 +1538,40 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
+  /typedoc-github-wiki-theme/1.0.0_ddd1ae58c87c5acf057dd7b2dd6957e9:
+    resolution: {integrity: sha512-8ZuRBSTq15j7oTCMRAiZV3t7KH+Y6tOXkEcyRj5HUEwCgd08DCfXpSrLHjXc83MlvvGi+16n7LuXK17NkEjf/g==}
+    peerDependencies:
+      typedoc: '>=0.22.9'
+      typedoc-plugin-markdown: '>=3.11.10'
+    dependencies:
+      typedoc: 0.22.15_typescript@4.6.3
+      typedoc-plugin-markdown: 3.12.0_typedoc@0.22.15
+    dev: true
+
+  /typedoc-plugin-markdown/3.12.0_typedoc@0.22.15:
+    resolution: {integrity: sha512-yKl7/KWD8nP6Ot6OzMLLc8wBzN3CmkBoI/YQzxT62a9xmDgxyeTxGbHbkUoSzhKFqMI3SR0AqV6prAhVKbYnxw==}
+    peerDependencies:
+      typedoc: '>=0.22.0'
+    dependencies:
+      handlebars: 4.7.7
+      typedoc: 0.22.15_typescript@4.6.3
+    dev: true
+
+  /typedoc/0.22.15_typescript@4.6.3:
+    resolution: {integrity: sha512-CMd1lrqQbFvbx6S9G6fL4HKp3GoIuhujJReWqlIvSb2T26vGai+8Os3Mde7Pn832pXYemd9BMuuYWhFpL5st0Q==}
+    engines: {node: '>= 12.10.0'}
+    hasBin: true
+    peerDependencies:
+      typescript: 4.0.x || 4.1.x || 4.2.x || 4.3.x || 4.4.x || 4.5.x || 4.6.x
+    dependencies:
+      glob: 7.2.0
+      lunr: 2.3.9
+      marked: 4.0.14
+      minimatch: 5.0.1
+      shiki: 0.10.1
+      typescript: 4.6.3
+    dev: true
+
   /typescript/4.6.3:
     resolution: {integrity: sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==}
     engines: {node: '>=4.2.0'}
@@ -1501,6 +1593,14 @@ packages:
     engines: {node: '>=12.17'}
     dev: true
 
+  /uglify-js/3.15.4:
+    resolution: {integrity: sha512-vMOPGDuvXecPs34V74qDKk4iJ/SN4vL3Ow/23ixafENYvtrNvtbcgUeugTcUGRGsOF/5fU8/NYSL5Hyb3l1OJA==}
+    engines: {node: '>=0.8.0'}
+    hasBin: true
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /untildify/4.0.0:
     resolution: {integrity: sha512-KK8xQ1mkzZeg9inewmFVDNkg3l5LUhoq9kN6iWYB/CC9YMG8HA+c1Q8HwDe6dEX7kErrEVNVBO3fWsVq5iDgtw==}
     engines: {node: '>=8'}
@@ -1521,12 +1621,24 @@ packages:
       sade: 1.8.1
     dev: true
 
+  /vscode-oniguruma/1.6.2:
+    resolution: {integrity: sha512-KH8+KKov5eS/9WhofZR8M8dMHWN2gTxjMsG4jd04YhpbPR91fUj7rYQ2/XjeHCJWbg7X++ApRIU9NUwM2vTvLA==}
+    dev: true
+
+  /vscode-textmate/5.2.0:
+    resolution: {integrity: sha512-Uw5ooOQxRASHgu6C7GVvUxisKXfSgW4oFlO+aa+PAkgmH89O3CXxEEzNRNtHSqtXFTl0nAC1uYj0GMSH27uwtQ==}
+    dev: true
+
   /which/2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
     engines: {node: '>= 8'}
     hasBin: true
     dependencies:
       isexe: 2.0.0
+    dev: true
+
+  /wordwrap/1.0.0:
+    resolution: {integrity: sha1-J1hIEIkUVqQXHI0CJkQa3pDLyus=}
     dev: true
 
   /wordwrapjs/4.0.1:
