@@ -21,7 +21,7 @@
     "postbuild": "nr copy",
     "build:cjs": "tsc --module commonjs; renamer --find /[.]js$/ --replace '.cjs' --path-element ext ./dist/*",
     "build:mjs": "tsc --module esnext; renamer --find /[.]js$/ --replace '.mjs'  --path-element ext ./dist/*",
-    "copy": "copyfiles -f package.json README.md LICENSE dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined;this.sizesnap=undefined; this.prettier=undefined; this.jest=undefined; this['lint-staged']=undefined;\"",
+    "copy": "copyfiles -f package.json readme.md license dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined;this.sizesnap=undefined; this.prettier=undefined; this.jest=undefined; this['lint-staged']=undefined;\"",
     "dev": "nr build -- --watch",
     "fix": "prettier --write .",
     "release": "./scripts/release",
