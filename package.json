@@ -13,6 +13,9 @@
     },
     "./package.json": "./package.json"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "rimraf dist; nr build:cjs;nr build:mjs;nr copy",
     "postbuild": "nr copy",

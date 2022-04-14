@@ -8,5 +8,5 @@ PROJECT_DIR="${SCRIPT_DIR}/.."
 bumpp --commit --tag
 nr build
 cd dist 
-pnpm publish 
+pnpm publish --publish-branch dev
 cd ${PROJECT_DIR}
