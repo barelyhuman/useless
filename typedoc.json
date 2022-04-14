@@ -6,7 +6,8 @@
     "src/timestringParser.ts",
     "src/toTitle.ts",
     "src/toUTCEndOfMonth.ts",
-    "src/toUTCStartOfMonth.ts"
+    "src/toUTCStartOfMonth.ts",
+    "src/classnames.ts"
   ],
   "theme": ["github-wiki"],
   "cleanOutputDir": false,
