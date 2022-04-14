@@ -4,4 +4,4 @@
 
 [Wiki &rarr;](https://github.com/barelyhuman/useless/wiki)
 
-[MIT](/license) &copy; 2022 [Reaper](github.com/barelyhuman)
+[MIT](https://github.com/barelyhuman/useless/blob/dev/license) &copy; 2022 [Reaper](http://github.com/barelyhuman)

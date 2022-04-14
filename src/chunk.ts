@@ -1,3 +1,13 @@
+/**
+ * Convert a given set of array into an array of the given size
+ * #### Example
+ * ```js
+ * import chunk from "@barleyhuman/useless/chunk"
+ *
+ * const items = [1,2,3,4,5]
+ * chunk(items,2) // => [[1,2],[3,4],[5]]
+ * ```
+ */
 export default function chunk(batch: any[], perChunkSize: number) {
   let result = [];
   let _chunk = [];
