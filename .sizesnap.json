@@ -1,0 +1,17 @@
+{
+  "dist/waterfall.cjs": {
+    "size": "629B",
+    "brotli": "243B",
+    "gzip": "298B"
+  },
+  "dist/waterfall.d.ts": {
+    "size": "150B",
+    "brotli": "99B",
+    "gzip": "133B"
+  },
+  "dist/waterfall.mjs": {
+    "size": "500B",
+    "brotli": "186B",
+    "gzip": "229B"
+  }
+}
