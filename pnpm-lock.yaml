@@ -6,6 +6,7 @@ specifiers:
   '@types/node': ^17.0.21
   bumpp: ^7.1.1
   copyfiles: ^2.4.1
+  date-fns: ^2.28.0
   esm: ^3.2.25
   json: ^11.0.0
   prettier: ^2.5.1
@@ -23,6 +24,7 @@ devDependencies:
   '@types/node': 17.0.24
   bumpp: 7.1.1
   copyfiles: 2.4.1
+  date-fns: 2.28.0
   esm: 3.2.25
   json: 11.0.0
   prettier: 2.6.2
@@ -330,6 +332,11 @@ packages:
   /current-module-paths/1.1.0:
     resolution: {integrity: sha512-HGhLUszcgprjKmzvQoCQda8iEWsQn3sWVzPdttyJVR5cjfVDYcoyozQA5D1YXgab9v84SPMpSuD+YrPX6i1IMQ==}
     engines: {node: '>=12.17'}
+    dev: true
+
+  /date-fns/2.28.0:
+    resolution: {integrity: sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==}
+    engines: {node: '>=0.11'}
     dev: true
 
   /debug/4.3.4:
