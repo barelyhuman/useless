@@ -9,7 +9,8 @@
 		"src/toUTCStartOfMonth.ts",
 		"src/classnames.ts",
 		"src/guardPipe.ts",
-		"src/asyncSerial.ts"
+		"src/asyncSerial.ts",
+		"src/findLinks.ts"
 	],
 	"theme": ["github-wiki"],
 	"cleanOutputDir": false,
