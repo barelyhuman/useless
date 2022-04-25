@@ -8,7 +8,8 @@
 		"src/toUTCEndOfMonth.ts",
 		"src/toUTCStartOfMonth.ts",
 		"src/classnames.ts",
-		"src/guardPipe.ts"
+		"src/guardPipe.ts",
+		"src/asyncSerial.ts"
 	],
 	"theme": ["github-wiki"],
 	"cleanOutputDir": false,

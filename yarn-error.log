@@ -1,0 +1,97 @@
+Arguments: 
+  /Users/sid/.nvm/versions/node/v16.14.2/bin/node /Users/sid/.nvm/versions/node/v16.14.2/bin/yarn
+
+PATH: 
+  ~/.nimble/bin:/Users/sid/Library/pnpm:/Users/sid/.nvm/versions/node/v16.14.2/bin:/opt/homebrew/sbin:/opt/homebrew/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:~/.nimble/bin:/Users/sid/Library/pnpm:/Users/sid/.nvm/versions/node/v16.14.2/bin:/opt/homebrew/sbin:/opt/homebrew/bin
+
+Yarn version: 
+  1.22.18
+
+Node version: 
+  16.14.2
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile '/Users/sid/Library/Caches/Yarn/v6/npm-typical-7.1.1-ba177ab7ab103b78534463ffa4c0c9754523ac1f-integrity/node_modules/typical/LICENSE' -> '/Users/sid/code/useless/node_modules/renamer/node_modules/typical/LICENSE'
+
+npm manifest: 
+  {
+  	"name": "@barelyhuman/useless",
+  	"version": "0.0.2",
+  	"description": "A set of useless utilities for javascript",
+  	"repository": "git@github.com:barelyhuman/useless.git",
+  	"license": "MIT",
+  	"author": "Reaper <ahoy@barelyhuman.dev>",
+  	"exports": {
+  		"./*": {
+  			"import": "./*.mjs",
+  			"require": "./*.cjs",
+  			"types": "./*.d.ts"
+  		},
+  		"./package.json": "./package.json"
+  	},
+  	"publishConfig": {
+  		"access": "public"
+  	},
+  	"scripts": {
+  		"build": "rimraf dist; nr build:cjs;nr build:mjs;nr copy",
+  		"postbuild": "nr copy",
+  		"build:cjs": "tsc --module commonjs; renamer --find /[.]js$/ --replace '.cjs' --path-element ext ./dist/*",
+  		"build:mjs": "tsc --module esnext; renamer --find /[.]js$/ --replace '.mjs'  --path-element ext ./dist/*",
+  		"copy": "copyfiles -f package.json readme.md license dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined;this.sizesnap=undefined; this.prettier=undefined; this.jest=undefined; this['lint-staged']=undefined;\"",
+  		"dev": "nr build -- --watch",
+  		"fix": "prettier --write .",
+  		"release": "./scripts/release",
+  		"size": "sizesnap",
+  		"start": "ts-node-dev --poll src/index.js",
+  		"test": "uvu -r tsm tests",
+  		"wiki": "npx typedoc"
+  	},
+  	"prettier": "@barelyhuman/prettier-config",
+  	"devDependencies": {
+  		"@antfu/ni": "^0.14.0",
+  		"@barelyhuman/prettier-config": "^0.1.0",
+  		"@types/node": "^17.0.21",
+  		"bumpp": "^7.1.1",
+  		"copyfiles": "^2.4.1",
+  		"date-fns": "^2.28.0",
+  		"json": "^11.0.0",
+  		"prettier": "^2.5.1",
+  		"renamer": "^4.0.0",
+  		"rimraf": "^3.0.2",
+  		"sizesnap": "^0.1.1",
+  		"ts-node-dev": "^1.1.8",
+  		"tsm": "^2.2.1",
+  		"tsup": "^5.12.5",
+  		"typedoc": "^0.22.15",
+  		"typedoc-github-wiki-theme": "^1.0.0",
+  		"typedoc-plugin-markdown": "^3.12.0",
+  		"typescript": "^4.5.5",
+  		"uvu": "^0.5.3"
+  	},
+  	"engines": {
+  		"node": ">=14"
+  	},
+  	"sideEffects": false,
+  	"sizesnap": {
+  		"files": [
+  			"dist/*"
+  		]
+  	},
+  	"peerDependencies": {
+  		"date-fns": "^2.28.0"
+  	},
+  	"peerDependenciesMeta": {
+  		"date-fns": {
+  			"optional": true
+  		}
+  	}
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
