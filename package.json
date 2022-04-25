@@ -1,6 +1,6 @@
 {
 	"name": "@barelyhuman/useless",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "A set of useless utilities for javascript",
 	"repository": "git@github.com:barelyhuman/useless.git",
 	"license": "MIT",
