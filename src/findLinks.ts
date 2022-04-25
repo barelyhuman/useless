@@ -1,4 +1,12 @@
-interface LinkMatch {
+/**
+ * It does what it says, find links from the given text, and returns an array of items
+ * with and without the links, this can then be used to construct custom rendered elements
+ *
+ *
+ * @module
+ */
+
+export interface LinkMatch {
 	isLink: boolean
 	value: string
 }

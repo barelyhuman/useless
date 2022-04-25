@@ -1,4 +1,4 @@
-interface Options {
+export interface Options {
 	label: string
 	log?: boolean
 	logger?: (data: string) => void

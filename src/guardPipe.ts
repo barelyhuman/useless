@@ -1,4 +1,10 @@
-type Operation = (data?: any) => Promise<boolean>
+/**
+ * **Note:** Unlike other utils, this util exports 2 functions, read each example to understand
+ * the usage.
+ * @module
+ */
+
+export type Operation = (data?: any) => Promise<boolean>
 
 const DIGEST = 'DIGEST_GUARD_ERROR'
 
@@ -31,8 +37,6 @@ async function createGuardPipe(...args: Operation[]) {
 
 /**
  *
- * **Note:** Unlike other utils, this util exports 2 functions, read each example to understand
- * the usage.
  *
  *
  * Simple pipe styled utility tailored to write structured guards.
@@ -87,9 +91,6 @@ export const guardPipe: typeof createGuardPipe = createGuardPipe.bind({
 })
 
 /**
- **Note:** Unlike other utils, this util exports 2 functions, read each example to understand
- * the usage.
- *
  *
  * Simple pipe styled utility tailored to write structured guards.
  *
