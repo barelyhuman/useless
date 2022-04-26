@@ -23,7 +23,7 @@
  * const batchToProcess = [{userId:1},{userId:2},{userId:3}]
  *
  * function fetchUsersData(){
- *  const userData = await conch(batchToProcess,async (item)=> {
+ *  const userData = await asyncSerial(batchToProcess,async (item)=> {
  * 		return await fetchUserById(item.userId)
  * 	} ,{limit:2})
  *
