@@ -1,152 +1,152 @@
 {
-  "dist/asyncPipe.cjs": {
-    "size": "399B",
-    "brotli": "178B",
-    "gzip": "233B"
-  },
-  "dist/asyncPipe.d.ts": {
-    "size": "137B",
-    "brotli": "113B",
-    "gzip": "125B"
-  },
-  "dist/asyncPipe.mjs": {
-    "size": "308B",
-    "brotli": "138B",
-    "gzip": "174B"
-  },
-  "dist/chunk.cjs": {
-    "size": "455B",
-    "brotli": "207B",
-    "gzip": "249B"
-  },
-  "dist/chunk.d.ts": {
-    "size": "74B",
-    "brotli": "70B",
-    "gzip": "86B"
-  },
-  "dist/chunk.mjs": {
-    "size": "368B",
-    "brotli": "159B",
-    "gzip": "187B"
-  },
-  "dist/classnames.cjs": {
-    "size": "774B",
-    "brotli": "287B",
-    "gzip": "343B"
-  },
-  "dist/classnames.d.ts": {
-    "size": "84B",
-    "brotli": "72B",
-    "gzip": "98B"
-  },
-  "dist/classnames.mjs": {
-    "size": "682B",
-    "brotli": "228B",
-    "gzip": "287B"
-  },
-  "dist/createExecTime.cjs": {
-    "size": "577B",
-    "brotli": "236B",
-    "gzip": "273B"
-  },
-  "dist/createExecTime.d.ts": {
-    "size": "270B",
-    "brotli": "146B",
-    "gzip": "174B"
-  },
-  "dist/createExecTime.mjs": {
-    "size": "481B",
-    "brotli": "173B",
-    "gzip": "213B"
-  },
-  "dist/index.cjs": {
-    "size": "1.897KB",
-    "brotli": "369B",
-    "gzip": "442B"
-  },
-  "dist/index.d.ts": {
-    "size": "458B",
-    "brotli": "147B",
-    "gzip": "172B"
-  },
-  "dist/index.mjs": {
-    "size": "458B",
-    "brotli": "147B",
-    "gzip": "172B"
-  },
-  "dist/license": {
-    "size": "1.086KB",
-    "brotli": "485B",
-    "gzip": "661B"
-  },
-  "dist/package.json": {
-    "size": "678B",
-    "brotli": "302B",
-    "gzip": "357B"
-  },
-  "dist/readme.md": {
-    "size": "1.08KB",
-    "brotli": "470B",
-    "gzip": "639B"
-  },
-  "dist/timestringParser.cjs": {
-    "size": "876B",
-    "brotli": "357B",
-    "gzip": "430B"
-  },
-  "dist/timestringParser.d.ts": {
-    "size": "191B",
-    "brotli": "111B",
-    "gzip": "141B"
-  },
-  "dist/timestringParser.mjs": {
-    "size": "600B",
-    "brotli": "253B",
-    "gzip": "295B"
-  },
-  "dist/toTitle.cjs": {
-    "size": "1.099KB",
-    "brotli": "368B",
-    "gzip": "449B"
-  },
-  "dist/toTitle.d.ts": {
-    "size": "64B",
-    "brotli": "64B",
-    "gzip": "77B"
-  },
-  "dist/toTitle.mjs": {
-    "size": "1.006KB",
-    "brotli": "328B",
-    "gzip": "391B"
-  },
-  "dist/toUTCEndOfMonth.cjs": {
-    "size": "573B",
-    "brotli": "273B",
-    "gzip": "316B"
-  },
-  "dist/toUTCEndOfMonth.d.ts": {
-    "size": "59B",
-    "brotli": "61B",
-    "gzip": "73B"
-  },
-  "dist/toUTCEndOfMonth.mjs": {
-    "size": "298B",
-    "brotli": "151B",
-    "gzip": "182B"
-  },
-  "dist/toUTCStartOfMonth.cjs": {
-    "size": "589B",
-    "brotli": "272B",
-    "gzip": "318B"
-  },
-  "dist/toUTCStartOfMonth.d.ts": {
-    "size": "61B",
-    "brotli": "55B",
-    "gzip": "75B"
-  },
-  "dist/toUTCStartOfMonth.mjs": {
-    "size": "312B",
-    "brotli": "147B",
-    "gzip": "184B"
-  }
+	"dist/asyncPipe.cjs": {
+		"size": "399B",
+		"brotli": "178B",
+		"gzip": "233B"
+	},
+	"dist/asyncPipe.d.ts": {
+		"size": "137B",
+		"brotli": "113B",
+		"gzip": "125B"
+	},
+	"dist/asyncPipe.mjs": {
+		"size": "308B",
+		"brotli": "138B",
+		"gzip": "174B"
+	},
+	"dist/chunk.cjs": {
+		"size": "455B",
+		"brotli": "207B",
+		"gzip": "249B"
+	},
+	"dist/chunk.d.ts": {
+		"size": "74B",
+		"brotli": "70B",
+		"gzip": "86B"
+	},
+	"dist/chunk.mjs": {
+		"size": "368B",
+		"brotli": "159B",
+		"gzip": "187B"
+	},
+	"dist/classnames.cjs": {
+		"size": "774B",
+		"brotli": "287B",
+		"gzip": "343B"
+	},
+	"dist/classnames.d.ts": {
+		"size": "84B",
+		"brotli": "72B",
+		"gzip": "98B"
+	},
+	"dist/classnames.mjs": {
+		"size": "682B",
+		"brotli": "228B",
+		"gzip": "287B"
+	},
+	"dist/createExecTime.cjs": {
+		"size": "577B",
+		"brotli": "236B",
+		"gzip": "273B"
+	},
+	"dist/createExecTime.d.ts": {
+		"size": "270B",
+		"brotli": "146B",
+		"gzip": "174B"
+	},
+	"dist/createExecTime.mjs": {
+		"size": "481B",
+		"brotli": "173B",
+		"gzip": "213B"
+	},
+	"dist/index.cjs": {
+		"size": "1.897KB",
+		"brotli": "369B",
+		"gzip": "442B"
+	},
+	"dist/index.d.ts": {
+		"size": "458B",
+		"brotli": "147B",
+		"gzip": "172B"
+	},
+	"dist/index.mjs": {
+		"size": "458B",
+		"brotli": "147B",
+		"gzip": "172B"
+	},
+	"dist/license": {
+		"size": "1.086KB",
+		"brotli": "485B",
+		"gzip": "661B"
+	},
+	"dist/package.json": {
+		"size": "678B",
+		"brotli": "302B",
+		"gzip": "357B"
+	},
+	"dist/readme.md": {
+		"size": "1.08KB",
+		"brotli": "470B",
+		"gzip": "639B"
+	},
+	"dist/timestringParser.cjs": {
+		"size": "876B",
+		"brotli": "357B",
+		"gzip": "430B"
+	},
+	"dist/timestringParser.d.ts": {
+		"size": "191B",
+		"brotli": "111B",
+		"gzip": "141B"
+	},
+	"dist/timestringParser.mjs": {
+		"size": "600B",
+		"brotli": "253B",
+		"gzip": "295B"
+	},
+	"dist/toTitle.cjs": {
+		"size": "1.099KB",
+		"brotli": "368B",
+		"gzip": "449B"
+	},
+	"dist/toTitle.d.ts": {
+		"size": "64B",
+		"brotli": "64B",
+		"gzip": "77B"
+	},
+	"dist/toTitle.mjs": {
+		"size": "1.006KB",
+		"brotli": "328B",
+		"gzip": "391B"
+	},
+	"dist/toUTCEndOfMonth.cjs": {
+		"size": "573B",
+		"brotli": "273B",
+		"gzip": "316B"
+	},
+	"dist/toUTCEndOfMonth.d.ts": {
+		"size": "59B",
+		"brotli": "61B",
+		"gzip": "73B"
+	},
+	"dist/toUTCEndOfMonth.mjs": {
+		"size": "298B",
+		"brotli": "151B",
+		"gzip": "182B"
+	},
+	"dist/toUTCStartOfMonth.cjs": {
+		"size": "589B",
+		"brotli": "272B",
+		"gzip": "318B"
+	},
+	"dist/toUTCStartOfMonth.d.ts": {
+		"size": "61B",
+		"brotli": "55B",
+		"gzip": "75B"
+	},
+	"dist/toUTCStartOfMonth.mjs": {
+		"size": "312B",
+		"brotli": "147B",
+		"gzip": "184B"
+	}
 }

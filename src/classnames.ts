@@ -19,9 +19,7 @@ export default function classnames(...args: (string | object | boolean)[]) {
 		if (typeof classNameExpr === 'object') {
 			Object.keys(classNameExpr).forEach(_className => {
 				const condition = classNameExpr[_className]
-				if (condition) {
-					classlist.push(_className)
-				}
+				if (condition) classlist.push(_className)
 			})
 		}
 	}

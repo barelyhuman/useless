@@ -16,10 +16,11 @@ export default function createExecTime(options: Options) {
 		},
 		end() {
 			this.__startTime = Date.now()
-			if (options.log)
+			if (options.log) {
 				options.logger(
 					`${this.__label}: ${this.__endTime - this.__startTime}ms`,
 				)
+			}
 		},
 	}
 }

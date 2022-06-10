@@ -1,6 +1,7 @@
 import {test} from 'uvu'
 import * as assert from 'uvu/assert'
-import findLinks from '../src/findLinks'
+
+import findLinks, {LinkMatch} from '../src/findLinks'
 
 const TEXTS = {
 	WITH_LINKS:
@@ -13,14 +14,11 @@ const TEXTS = {
 
 test('linked text', () => {
 	const parsed = findLinks(TEXTS.WITH_LINKS)
-	const links = []
-	const text = []
+	const links: LinkMatch[] = []
+	const text: LinkMatch[] = []
 	for (const item of parsed) {
-		if (item.isLink) {
-			links.push(item)
-		} else {
-			text.push(item)
-		}
+		if (item.isLink) links.push(item)
+		else text.push(item)
 	}
 
 	assert.is(text.length, 4)
@@ -29,15 +27,12 @@ test('linked text', () => {
 
 test('unlinked text', () => {
 	const parsed = findLinks(TEXTS.NO_LINKS)
-	const links = []
-	const text = []
+	const links: LinkMatch[] = []
+	const text: LinkMatch[] = []
 
 	for (const item of parsed) {
-		if (item.isLink) {
-			links.push(item)
-		} else {
-			text.push(item)
-		}
+		if (item.isLink) links.push(item)
+		else text.push(item)
 	}
 
 	assert.is(text.length, 1)
@@ -47,23 +42,17 @@ test('unlinked text', () => {
 test('only link', () => {
 	const parsed = findLinks(TEXTS.ONLY_LINK)
 	const parsedTwo = findLinks(TEXTS.ONLY_LINK2)
-	const links = []
-	const text = []
+	const links: LinkMatch[] = []
+	const text: LinkMatch[] = []
 
 	for (const item of parsed) {
-		if (item.isLink) {
-			links.push(item)
-		} else {
-			text.push(item)
-		}
+		if (item.isLink) links.push(item)
+		else text.push(item)
 	}
 
 	for (const item of parsedTwo) {
-		if (item.isLink) {
-			links.push(item)
-		} else {
-			text.push(item)
-		}
+		if (item.isLink) links.push(item)
+		else text.push(item)
 	}
 
 	assert.is(text.length, 0)

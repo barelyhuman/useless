@@ -24,18 +24,13 @@ export default function findLinks(textToParse: string): LinkMatch[] {
 	let slicedTillIndex = 0
 
 	for (const linkItem of linksIterator) {
-		if (linkItem.length === 0) {
-			continue
-		}
+		if (linkItem.length === 0) continue
 
-		if (!linkItem[0]) {
-			continue
-		}
+		if (!linkItem[0]) continue
 
 		let endIndex
-		if (typeof linkItem.index !== 'undefined') {
+		if (typeof linkItem.index !== 'undefined')
 			endIndex = linkItem.index + linkItem[0].length
-		}
 
 		const currentSlice = {
 			link: linkItem[0],
@@ -48,9 +43,8 @@ export default function findLinks(textToParse: string): LinkMatch[] {
 
 		textToParse.slice(slicedTillIndex, currentSlice.index)
 
-		if (currentSlice.endIndex) {
+		if (currentSlice.endIndex)
 			linkText = textToParse.slice(currentSlice.index, currentSlice.endIndex)
-		}
 
 		if (prefix) {
 			classifiedMatches.push({

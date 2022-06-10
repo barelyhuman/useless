@@ -1,5 +1,6 @@
 import {test} from 'uvu'
 import * as assert from 'uvu/assert'
+
 import chunk from '../src/chunk'
 
 test('should return empty array', () => {

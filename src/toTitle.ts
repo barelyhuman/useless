@@ -3,11 +3,10 @@ const camelRegex = /^([a-z]+)((?:[A-Z][a-z]+)*)$/
 
 const strToTitle = (x: string) => x[0].toUpperCase() + x.slice(1)
 const partsToTitle = (parts: string[]) => {
-	let valids = []
-	for (let part of parts) {
-		if (!part.length) {
-			continue
-		}
+	const valids = []
+	for (const part of parts) {
+		if (!part.length) continue
+
 		valids.push(strToTitle(part))
 	}
 	return valids.join(' ')
@@ -17,9 +16,7 @@ export default function toTitleCase(toConvert: string) {
 	return toConvert
 		.split(/[_ -]/g)
 		.map(item => {
-			if (!item.length) {
-				return ''
-			}
+			if (!item.length) return ''
 
 			// check for camelCase and PascalCase
 			const isPascal = pascalRegex.test(item.trim())

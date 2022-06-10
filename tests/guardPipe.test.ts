@@ -1,5 +1,6 @@
 import {test} from 'uvu'
 import * as assert from 'uvu/assert'
+
 import {guardPipe, guardPipeLoose} from '../src/guardPipe'
 
 const mockData = {

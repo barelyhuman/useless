@@ -41,12 +41,11 @@ export default function timestringParser(
 	} = options || {}
 
 	let validDate
-	for (let format of formats) {
+	for (const format of formats) {
 		try {
 			const val = parse(timestring, format, new Date(refDate))
-			if (String(val).startsWith('Invalid Date')) {
-				continue
-			}
+			if (String(val).startsWith('Invalid Date')) continue
+
 			validDate = val
 			break
 		} catch (err) {

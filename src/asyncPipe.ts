@@ -12,7 +12,7 @@
  * @module
  */
 
-export type Operation = (data?: any) => Promise<any>
+export type Operation = (data?: unknown) => Promise<unknown>
 
 /**
  * #### Example
@@ -34,7 +34,7 @@ export type Operation = (data?: any) => Promise<any>
 export default async function asyncPipe(...args: Operation[]) {
 	return await args.reduce((chain, operation: Operation) => {
 		return chain
-			.then((prevData?: any) => {
+			.then((prevData?: unknown) => {
 				// take in the previous data and pass it down
 				return operation(prevData)
 			})

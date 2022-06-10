@@ -1,5 +1,6 @@
 import {test} from 'uvu'
 import * as assert from 'uvu/assert'
+
 import classnames from '../src/classnames'
 
 test('should return type string', () => {

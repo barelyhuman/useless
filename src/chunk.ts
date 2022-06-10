@@ -8,19 +8,19 @@
  * chunk(items,2) // => [[1,2],[3,4],[5]]
  * ```
  */
-export default function chunk(batch: any[], perChunkSize: number) {
-	let result = []
-	let _chunk = []
+export default function chunk<T extends Record<string, unknown>>(
+	batch: T[],
+	perChunkSize: number,
+) {
+	const result = []
+	let offset = 0
 
-	for (let i = 0; i < batch.length; i++) {
-		if (_chunk.length === perChunkSize) {
-			result.push(_chunk)
-			_chunk = []
-		}
-
-		_chunk.push(batch[i])
+	while (offset < batch.length) {
+		const _cnk = batch.slice(offset * perChunkSize, (offset + 1) * perChunkSize)
+		if (_cnk.length === 0) break
+		result.push(_cnk)
+		offset = offset + 1
 	}
 
-	if (_chunk.length > 0) result.push(_chunk)
 	return result
 }

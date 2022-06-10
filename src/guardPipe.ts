@@ -4,7 +4,7 @@
  * @module
  */
 
-export type Operation = (data?: any) => Promise<boolean>
+export type Operation = (data?: unknown) => Promise<boolean>
 
 const DIGEST = 'DIGEST_GUARD_ERROR'
 
@@ -14,7 +14,7 @@ async function createGuardPipe(...args: Operation[]) {
 	try {
 		await args.reduce((chain, operation: Operation) => {
 			return chain
-				.then((prevData?: any) => {
+				.then((prevData?: unknown) => {
 					// take in the previous data and pass it down
 					return operation(prevData)
 				})

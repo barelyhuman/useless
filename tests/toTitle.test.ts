@@ -1,5 +1,6 @@
 import {test} from 'uvu'
 import * as assert from 'uvu/assert'
+
 import toTitle from '../src/toTitle'
 
 test('should convert snake_case to Title Case', () => {

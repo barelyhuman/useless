@@ -1,5 +1,6 @@
 import {test} from 'uvu'
 import * as assert from 'uvu/assert'
+
 import toUTCEndOfMonth from '../src/toUTCEndOfMonth'
 
 test('should match end of month', () => {
