@@ -1,8 +1,8 @@
-import { DateTime } from 'luxon'
-
 /**
  * `UTCTimestampToDate` is a helper to get the correct date in UTC
  * based on requested date in a particular timezone.
+ *
+ * > **Note**: luxon is a peerDependency for this, please install it with `npm i luxon`
  *
  * A very common example would be the availability ranges when working
  * with booking systems.
@@ -22,19 +22,28 @@ import { DateTime } from 'luxon'
  * Monday, 6:30PM - 10:30PM - based on, 1st July, 2022 in Central Time (America/Chicago) -5:00 hours from UTC
  * then when you store EntityA's data in your DB you have to make sure you save the requested weekday's data
  * and the timezone that it aligns to.
- *
+ *```
  * Monday -> 0 (iso weekday)
+ *
  * 6:30PM -> 18:30:00 -> open time
+ *
  * 10:30PM -> 22:30:00 -> close time
+ *
  * America/Chicago -> America/Chicago
+ *```
  *
  * If so, great!
  * You can use all that to translate the data
  * but, when working with a UTC centric server, the above changes a bit.
+ *```
  * Monday -> 0 (iso weekday)
+ *
  * 6:30PM -> 23:30:00 of 1st July on UTC -> open time
+ *
  * 10:30PM -> 03:30:00 of 2nd July on UTC -> close time
+ *
  * America/Chicago -> America/Chicago
+ *```
  *
  * The problem is that now the timestamps are
  * 1. invalid
@@ -46,11 +55,18 @@ import { DateTime } from 'luxon'
  * now when given the timestamps 23:30:00, 03:30:00 , if you wish to find out which one is
  * on the previous day and which one is on the next day, `UTCTimestampToDate` can be helpful.
  *
- * UTCTimestampToDate takes in a refDate which is a refDate in the expected timezone
- * and the requested timestamp and the timezone as well.
+ * `UTCTimestampToDate` takes in a `refDate` which is the actual date in the timezone you are
+ * working for.
+ * so in this case this would be 1 July,2022 in UTC-5:00 so in code `new Date("2022-07-01 00:00:00 GMT-0500")`
+ * you can also use utilities like luxon / moment to create this date for you.
+ *
+ * This is then used to translate and generate the correct date on UTC for the
+ * given `timestamp`
  *
  * example:
  * ```ts
+ * import UTCTimestampToDate from "@barelyhuman/useless/UTCTimestampToDate"
+ *
  * const { corrected: open } = UTCTimestampToDate({
  * 	 refDate: new Date("2022-07-01 00:00:00 GMT-0500"),
  *	 timestamp: '23:30:00',
@@ -68,6 +84,8 @@ import { DateTime } from 'luxon'
  *
  * @module
  */
+
+import { DateTime } from 'luxon'
 
 export interface UTCTimestampToDateParams {
   refDate: Date

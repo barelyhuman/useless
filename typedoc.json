@@ -10,7 +10,8 @@
     "src/classnames.ts",
     "src/guardPipe.ts",
     "src/asyncSerial.ts",
-    "src/findLinks.ts"
+    "src/findLinks.ts",
+    "src/UTCTimestampToDate.ts"
   ],
   "theme": ["github-wiki"],
   "cleanOutputDir": false,
