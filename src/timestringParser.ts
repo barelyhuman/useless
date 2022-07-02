@@ -1,8 +1,8 @@
 import parse from 'date-fns/parse'
 
 export interface TimestringParserOptions {
-	refDate?: Date
-	formats?: string[]
+  refDate?: Date
+  formats?: string[]
 }
 
 /**
@@ -32,25 +32,25 @@ export interface TimestringParserOptions {
  * ```
  */
 export default function timestringParser(
-	timestring: string,
-	options?: TimestringParserOptions,
+  timestring: string,
+  options?: TimestringParserOptions
 ) {
-	const {
-		refDate = new Date(),
-		formats = ['HH:mm:ss', 'HH:mm:ssx', 'HH:mm:ssxxx'],
-	} = options || {}
+  const {
+    refDate = new Date(),
+    formats = ['HH:mm:ss', 'HH:mm:ssx', 'HH:mm:ssxxx'],
+  } = options || {}
 
-	let validDate
-	for (const format of formats) {
-		try {
-			const val = parse(timestring, format, new Date(refDate))
-			if (String(val).startsWith('Invalid Date')) continue
+  let validDate
+  for (const format of formats) {
+    try {
+      const val = parse(timestring, format, new Date(refDate))
+      if (String(val).startsWith('Invalid Date')) continue
 
-			validDate = val
-			break
-		} catch (err) {
-			continue
-		}
-	}
-	return validDate || 'Invalid Date'
+      validDate = val
+      break
+    } catch (err) {
+      continue
+    }
+  }
+  return validDate || 'Invalid Date'
 }

@@ -9,18 +9,18 @@
  * ```
  */
 export default function chunk<T extends Record<string, unknown>>(
-	batch: T[],
-	perChunkSize: number,
+  batch: T[],
+  perChunkSize: number
 ) {
-	const result = []
-	let offset = 0
+  const result = []
+  let offset = 0
 
-	while (offset < batch.length) {
-		const _cnk = batch.slice(offset * perChunkSize, (offset + 1) * perChunkSize)
-		if (_cnk.length === 0) break
-		result.push(_cnk)
-		offset = offset + 1
-	}
+  while (offset < batch.length) {
+    const _cnk = batch.slice(offset * perChunkSize, (offset + 1) * perChunkSize)
+    if (_cnk.length === 0) break
+    result.push(_cnk)
+    offset = offset + 1
+  }
 
-	return result
+  return result
 }

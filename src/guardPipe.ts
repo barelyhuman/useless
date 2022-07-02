@@ -9,30 +9,30 @@ export type Operation = (data?: unknown) => Promise<boolean>
 const DIGEST = 'DIGEST_GUARD_ERROR'
 
 async function createGuardPipe(...args: Operation[]) {
-	const ctx = this || {}
-	const results: Record<string, boolean> = {}
-	try {
-		await args.reduce((chain, operation: Operation) => {
-			return chain
-				.then((prevData?: unknown) => {
-					// take in the previous data and pass it down
-					return operation(prevData)
-				})
-				.then(opData => {
-					// return to the next possible operation
-					results[operation.name] = opData
-					if (!opData && ctx.breakOnFalse) {
-						// no error message as this will be digested
-						throw new Error(DIGEST)
-					}
-					return results
-				})
-		}, Promise.resolve())
-		return results
-	} catch (err) {
-		if (err.message === DIGEST) return results
-		throw err
-	}
+  const ctx = this || {}
+  const results: Record<string, boolean> = {}
+  try {
+    await args.reduce((chain, operation: Operation) => {
+      return chain
+        .then((prevData?: unknown) => {
+          // take in the previous data and pass it down
+          return operation(prevData)
+        })
+        .then(opData => {
+          // return to the next possible operation
+          results[operation.name] = opData
+          if (!opData && ctx.breakOnFalse) {
+            // no error message as this will be digested
+            throw new Error(DIGEST)
+          }
+          return results
+        })
+    }, Promise.resolve())
+    return results
+  } catch (err) {
+    if (err.message === DIGEST) return results
+    throw err
+  }
 }
 
 /**
@@ -87,7 +87,7 @@ async function createGuardPipe(...args: Operation[]) {
  * ```
  */
 export const guardPipe: typeof createGuardPipe = createGuardPipe.bind({
-	breakOnFalse: true,
+  breakOnFalse: true,
 })
 
 /**
@@ -132,5 +132,5 @@ export const guardPipe: typeof createGuardPipe = createGuardPipe.bind({
  * ```
  */
 export const guardPipeLoose: typeof createGuardPipe = createGuardPipe.bind({
-	breakOnFalse: false,
+  breakOnFalse: false,
 })

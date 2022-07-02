@@ -21,4 +21,5 @@ jobs:
         run: |
           npm i -g @antfu/ni
           ni
-          nr test
+          TZ="Asia/Kolkata" nr test
+          TZ="America/Chicago" nr test

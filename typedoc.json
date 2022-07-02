@@ -1,18 +1,18 @@
 {
-	"entryPoints": [
-		"src/asyncPipe.ts",
-		"src/chunk.ts",
-		"src/createExecTime.ts",
-		"src/timestringParser.ts",
-		"src/toTitle.ts",
-		"src/toUTCEndOfMonth.ts",
-		"src/toUTCStartOfMonth.ts",
-		"src/classnames.ts",
-		"src/guardPipe.ts",
-		"src/asyncSerial.ts",
-		"src/findLinks.ts"
-	],
-	"theme": ["github-wiki"],
-	"cleanOutputDir": false,
-	"out": "../useless.wiki"
+  "entryPoints": [
+    "src/asyncPipe.ts",
+    "src/chunk.ts",
+    "src/createExecTime.ts",
+    "src/timestringParser.ts",
+    "src/toTitle.ts",
+    "src/toUTCEndOfMonth.ts",
+    "src/toUTCStartOfMonth.ts",
+    "src/classnames.ts",
+    "src/guardPipe.ts",
+    "src/asyncSerial.ts",
+    "src/findLinks.ts"
+  ],
+  "theme": ["github-wiki"],
+  "cleanOutputDir": false,
+  "out": "../useless.wiki"
 }
