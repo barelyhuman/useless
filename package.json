@@ -34,6 +34,7 @@
 	"devDependencies": {
 		"@antfu/ni": "^0.14.0",
 		"@barelyhuman/prettier-config": "^0.1.0",
+		"@types/luxon": "^2.3.2",
 		"@types/node": "^17.0.21",
 		"@typescript-eslint/eslint-plugin": "^5.27.1",
 		"@typescript-eslint/parser": "^5.27.1",
@@ -44,6 +45,7 @@
 		"eslint-plugin-import": "^2.26.0",
 		"eslint-plugin-simple-import-sort": "^7.0.0",
 		"json": "^11.0.0",
+		"luxon": "^2.4.0",
 		"prettier": "^2.5.1",
 		"renamer": "^4.0.0",
 		"rimraf": "^3.0.2",
@@ -67,10 +69,14 @@
 		]
 	},
 	"peerDependencies": {
-		"date-fns": "^2.28.0"
+		"date-fns": "^2.28.0",
+		"luxon": ">=2.4.0"
 	},
 	"peerDependenciesMeta": {
 		"date-fns": {
+			"optional": true
+		},
+		"luxon": {
 			"optional": true
 		}
 	}
