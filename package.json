@@ -1,6 +1,6 @@
 {
   "name": "@barelyhuman/useless",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "packageManager": "pnpm@6.32.10",
   "description": "A set of useless utilities for javascript",
   "repository": "git@github.com:barelyhuman/useless.git",
