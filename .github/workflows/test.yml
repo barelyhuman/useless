@@ -6,6 +6,10 @@ on:
     branches: [dev]
 jobs:
   test:
+    strategy:
+      matrix:
+        timezone:
+          ['Africa/Algiers', 'Asia/Kolkata', 'America/Chicago', 'Europe/Dublin']
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,7 +25,4 @@ jobs:
         run: |
           npm i -g @antfu/ni
           ni
-          TZ="Europe/Dublin" nr test
-          TZ="Africa/Algiers" nr test
-          TZ="Asia/Kolkata" nr test
-          TZ="America/Chicago" nr test
+          TZ=${{ matrix.timezone }} nr test
