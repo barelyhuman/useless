@@ -103,9 +103,11 @@ export default function UTCTimestampToDate({
   if (timestampSplit.length !== 3)
     throw new Error('[useless] UTCTimestampToDate: invalid timestamp')
 
-  let corrected = DateTime.fromISO(refDate.toISOString(), {
+  let baseDate: any = DateTime.fromISO(refDate.toISOString(), {
     zone: timezone,
   })
+
+  const corrected = baseDate
     .toUTC()
     .set({
       hour: parseInt(timestampSplit[0], 10),
@@ -114,11 +116,11 @@ export default function UTCTimestampToDate({
     })
     .setZone(timezone)
     .set({
-      day: refDate.getDate(),
-      month: refDate.getMonth() + 1,
+      day: baseDate.day,
+      month: baseDate.month,
     })
     .toUTC()
     .toISO()
 
-  return corrected
+  return corrected as string
 }
