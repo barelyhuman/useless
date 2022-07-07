@@ -6,10 +6,13 @@
   "repository": "git@github.com:barelyhuman/useless.git",
   "license": "MIT",
   "author": "Reaper <ahoy@barelyhuman.dev>",
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
   "exports": {
     "./*": {
       "import": "./*.mjs",
-      "require": "./*.cjs",
+      "require": "./*.js",
       "types": "./*.d.ts"
     },
     "./package.json": "./package.json"
@@ -19,9 +22,9 @@
   },
   "scripts": {
     "nuke": "find . -name 'node_modules' -type d -prune | xargs rm -rf",
-    "build": "rimraf dist; nr build:cjs;nr build:mjs;nr copy",
+    "build": "rimraf dist;nr build:mjs; nr build:cjs;nr copy",
     "postbuild": "nr copy",
-    "build:cjs": "tsc --module commonjs; renamer --find /[.]js$/ --replace '.cjs' --path-element ext ./dist/*",
+    "build:cjs": "tsc --module commonjs",
     "build:mjs": "tsc --module esnext; renamer --find /[.]js$/ --replace '.mjs'  --path-element ext ./dist/*",
     "copy": "copyfiles -f package.json readme.md license dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined;this.sizesnap=undefined; this.prettier=undefined; this.jest=undefined; this['lint-staged']=undefined;\"",
     "dev": "nr build -- --watch",
