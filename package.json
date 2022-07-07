@@ -1,15 +1,17 @@
 {
   "name": "@barelyhuman/useless",
   "version": "0.0.7",
-  "packageManager": "pnpm@6.32.10",
   "description": "A set of useless utilities for javascript",
   "repository": "git@github.com:barelyhuman/useless.git",
   "license": "MIT",
   "author": "Reaper <ahoy@barelyhuman.dev>",
-  "main": "./index.js",
-  "module": "./index.mjs",
-  "types": "./index.d.ts",
+  "sideEffects": false,
   "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js",
+      "types": "./index.d.ts"
+    },
     "./*": {
       "import": "./*.mjs",
       "require": "./*.js",
@@ -17,11 +19,10 @@
     },
     "./package.json": "./package.json"
   },
-  "publishConfig": {
-    "access": "public"
-  },
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
   "scripts": {
-    "nuke": "find . -name 'node_modules' -type d -prune | xargs rm -rf",
     "build": "rimraf dist;nr build:mjs; nr build:cjs;nr copy",
     "postbuild": "nr copy",
     "build:cjs": "tsc --module commonjs",
@@ -29,6 +30,7 @@
     "copy": "copyfiles -f package.json readme.md license dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined;this.sizesnap=undefined; this.prettier=undefined; this.jest=undefined; this['lint-staged']=undefined;\"",
     "dev": "nr build -- --watch",
     "fix": "eslint --fix ./src/*.ts ./tests/**.ts; prettier --write .",
+    "nuke": "find . -name 'node_modules' -type d -prune | xargs rm -rf",
     "release": "./scripts/release",
     "size": "sizesnap",
     "start": "ts-node-dev --poll src/index.js",
@@ -66,15 +68,6 @@
     "typescript": "^4.5.5",
     "uvu": "^0.5.3"
   },
-  "engines": {
-    "node": ">=14"
-  },
-  "sideEffects": false,
-  "sizesnap": {
-    "files": [
-      "dist/*"
-    ]
-  },
   "peerDependencies": {
     "date-fns": "^2.28.0",
     "luxon": ">=2.4.0"
@@ -86,5 +79,17 @@
     "luxon": {
       "optional": true
     }
+  },
+  "packageManager": "pnpm@6.32.10",
+  "engines": {
+    "node": ">=14"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sizesnap": {
+    "files": [
+      "dist/*"
+    ]
   }
 }
