@@ -88,39 +88,61 @@
 import { DateTime } from 'luxon'
 
 export interface UTCTimestampToDateParams {
-  refDate: Date
+  refDate: Date | string
   timestamp: string
   timezone: string
 }
 
-export default function UTCTimestampToDate({
+const UTCTimestampToDate = ({
   refDate,
   timestamp,
   timezone,
-}: UTCTimestampToDateParams) {
+}: UTCTimestampToDateParams) => {
   const timestampSplit = timestamp.split(':')
 
   if (timestampSplit.length !== 3)
-    throw new Error('[useless] UTCTimestampToDate: invalid timestamp')
+    throw new Error('[dates] UTCTimestampToDate: invalid timestamp')
 
-  let baseDate: any = DateTime.fromISO(refDate.toISOString(), {
-    zone: timezone,
+  let baseDate: any
+  if (typeof refDate === 'string') {
+    baseDate = DateTime.fromISO(refDate, {
+      zone: timezone,
+    })
+  }
+
+  if (refDate instanceof Date) {
+    baseDate = DateTime.fromJSDate(refDate, {
+      zone: timezone,
+    })
+  }
+
+  if (!baseDate) throw new Error('[dates] Invalid date reference')
+
+  // used as the date for changes in time as converting between local times
+  // can create disparity
+  let randomDateInUTC = DateTime.utc().startOf('day')
+
+  // set the given timestamp in utc without any reference to the requested date
+  randomDateInUTC = randomDateInUTC.set({
+    hour: parseInt(timestampSplit[0], 10),
+    minute: parseInt(timestampSplit[1], 10),
+    second: parseInt(timestampSplit[2], 10),
+    millisecond: 0,
   })
 
-  const corrected = baseDate
-    .toUTC()
-    .set({
-      hour: parseInt(timestampSplit[0], 10),
-      minute: parseInt(timestampSplit[1], 10),
-      second: parseInt(timestampSplit[2], 10),
-    })
-    .setZone(timezone)
-    .set({
-      day: baseDate.day,
-      month: baseDate.month,
-    })
-    .toUTC()
-    .toISO()
+  // move the timestamp to the requested timezone, this will either
+  // move the date up or down based on the timezone
+  // then we correct the date to match with
+  // the requested date, thus creating the original timestamp
+  // in the requested timezone
+  const corrected = randomDateInUTC.setZone(timezone).set({
+    day: baseDate.day,
+    month: baseDate.month,
+    year: baseDate.year,
+  })
 
-  return corrected as string
+  // return the corrected value by converting it back into UTC
+  return corrected.toUTC().toISO() as string
 }
+
+export default UTCTimestampToDate

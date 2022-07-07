@@ -1,61 +1,102 @@
+import { DateTime } from 'luxon'
 import { test } from 'uvu'
 import * as assert from 'uvu/assert'
 
 import UTCTimestampToDate from '../src/UTCTimestampToDate'
 
-test('pass on basic end time overlapping for TZ -5:00', () => {
-  const dateForBlock = new Date('2022-07-01 00:00:00 GMT-0500')
-  const tz = 'America/Chicago'
+// check every minute of all 24 hours.
+// rather excessive but needed
+const TIME_SLOTS_COUNT = 24
+const TIME_SLOT_INTERVALS = 60
+const TIME_SLOT_INTERVAL_MULTIPLIER = 1
 
-  const open = UTCTimestampToDate({
-    refDate: dateForBlock,
-    timestamp: '21:30:00',
-    timezone: tz,
-  })
-  const close = UTCTimestampToDate({
-    refDate: dateForBlock,
-    timestamp: '03:30:00',
-    timezone: tz,
-  })
+const timezones = [
+  'America/Chicago',
+  'Africa/Algiers',
+  'Asia/Kolkata',
+  'America/Chicago',
+  'Europe/Dublin',
+]
 
-  assert.is(open, '2022-07-01T21:30:00.000Z')
-  assert.is(close, '2022-07-02T03:30:00.000Z')
+timezones.forEach(tz => {
+  for (let i = 0; i < TIME_SLOTS_COUNT; i += 1) {
+    const hour = i
+    for (let j = 0; j < TIME_SLOT_INTERVALS; j += 1) {
+      const minute = j * TIME_SLOT_INTERVAL_MULTIPLIER
+      generateTests(
+        {
+          hour,
+          minute,
+          second: 0,
+          millisecond: 0,
+        },
+        tz
+      )
+    }
+  }
 })
 
-test('pass on another overlapt for TZ -5:00', () => {
-  const open = UTCTimestampToDate({
-    refDate: new Date('2022-07-01 00:00:00 GMT-0500'),
-    timestamp: '23:30:00',
-    timezone: 'America/Chicago',
-  })
-  const close = UTCTimestampToDate({
-    refDate: new Date('2022-07-01 00:00:00 GMT-0500'),
-    timestamp: '03:30:00',
-    timezone: 'America/Chicago',
-  })
+function generateTests(timeobj, tz) {
+  test(`${tz} | ${timeobj.hour}:${timeobj.minute}`, () => {
+    const dateForBlock = DateTime.fromObject(
+      {
+        day: 1,
+        month: 7,
+        year: 2022,
+      },
+      { zone: tz }
+    ).startOf('day')
 
-  assert.is(open, '2022-07-01T23:30:00.000Z')
-  assert.is(close, '2022-07-02T03:30:00.000Z')
-})
+    const timestampDate = DateTime.now()
+      .setZone(tz)
+      .set({
+        day: dateForBlock.day,
+        month: dateForBlock.month,
+        ...timeobj,
+      })
+      .toUTC()
 
-test('pass on basic start time overlapping for TZ +5:30', () => {
-  const dateForBlock = new Date('2022-07-01 00:00:00 GMT+0530')
+    const corrected = UTCTimestampToDate({
+      refDate: dateForBlock.toISO(),
+      timestamp: timestampDate.toFormat('HH:mm:ss'),
+      timezone: tz,
+    })
+
+    assert.is(corrected, timestampDate.toISO())
+  })
+}
+
+test('Manual | Overlap for +5:30', () => {
   const tz = 'Asia/Kolkata'
+  const dateForBlock = DateTime.fromObject(
+    {
+      day: 1,
+      month: 7,
+      year: 2022,
+    },
+    { zone: tz }
+  )
 
-  const open = UTCTimestampToDate({
-    refDate: dateForBlock,
-    timestamp: '19:00:00',
+  const timestampDate = DateTime.now()
+    .setZone(tz)
+    .set({
+      day: dateForBlock.day,
+      month: dateForBlock.month,
+      millisecond: 0,
+      hour: 0,
+      minute: 0,
+      second: 0,
+    })
+    .toUTC()
+  // should go back a day to 30th
+
+  const corrected = UTCTimestampToDate({
+    refDate: dateForBlock.toISO(),
+    timestamp: timestampDate.toFormat('HH:mm:ss'),
     timezone: tz,
   })
 
-  const close = UTCTimestampToDate({
-    refDate: dateForBlock,
-    timestamp: '00:00:00',
-    timezone: tz,
-  })
-
-  assert.is(open, '2022-06-30T19:00:00.000Z')
-  assert.is(close, '2022-07-01T00:00:00.000Z')
+  assert.is(corrected, timestampDate.toISO())
 })
 
 test.run()
