@@ -32,7 +32,7 @@
     "release": "./scripts/release",
     "size": "sizesnap",
     "start": "ts-node-dev --poll src/index.js",
-    "test": "uvu -r tsm tests",
+    "test": "uvu tests -r tsm",
     "wiki": "npx typedoc"
   },
   "prettier": "@barelyhuman/prettier-config",

@@ -1,0 +1,35 @@
+name: Import Test
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev]
+jobs:
+  test:
+    strategy:
+      matrix:
+        node: [12.x, 14.x]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{matrix.node}}
+      - uses: pnpm/action-setup@v2.1.0
+        with:
+          version: 6.0.2
+
+      - name: Prepare
+        run: |
+          pnpm i 
+          pnpm build
+
+      - name: Test node12 CJS
+        if: matrix.node == '12.x'
+        run: cd import-tests/node12; node index.js
+
+      - name: Test node14 ESM
+        if: matrix.node == '14.x'
+        run: cd import-tests/node14; node index.js
